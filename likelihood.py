@@ -79,7 +79,7 @@ class LFLikelihood(Likelihood):
         bincents = bincents[okinds]
         
         self.xvar = bincents
-        self.yvar = phi
+        self.yvar = np.log10(phi)
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
 
