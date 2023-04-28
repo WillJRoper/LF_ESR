@@ -31,9 +31,9 @@ print("Got likelihood")
 
 
 # Run the fitting
-esr.fitting.test_all.main(comp, likelihood)
-esr.fitting.test_all_Fisher.main(comp, likelihood)
-esr.fitting.match.main(comp, likelihood)
-esr.fitting.combine_DL.main(comp, likelihood)
+esr.fitting.test_all.main(complexity, likelihood)
+esr.fitting.test_all_Fisher.main(complexity, likelihood)
+esr.fitting.match.main(complexity, likelihood)
+esr.fitting.combine_DL.main(complexity, likelihood)
 # esr.fitting.plot.main(comp, likelihood)
 
