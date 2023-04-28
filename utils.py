@@ -3,6 +3,7 @@ import numpy as np
 import schwimmbad
 from functools import partial
 from unyt import pc
+import pandas as pd
 
 
 def lum_to_M(Lnu_):
