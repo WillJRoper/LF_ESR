@@ -22,7 +22,8 @@ class LFLikelihood(Likelihood):
         binwidth = bins[1:] - bins[:-1]
 
         # Get the data from the master file.
-        out, hist_all, err = get_lum_all(snap, bins = bins, data_file)
+        out, hist_all, err = get_lum_all(snap, bins = bins,
+                                         data_file=data_file)
         ok = np.where(hist_all<=5)[0]
         out[ok] = 0.
         hist_all[ok] = 0.
