@@ -2,6 +2,7 @@ import os
 import numpy as np
 from esr.fitting.likelihood import Likelihood
 from utils import get_lum_all
+import esr.generation.simplifier
 
 
 class LFLikelihood(Likelihood):
