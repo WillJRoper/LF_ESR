@@ -27,7 +27,11 @@ class LFLikelihood(Likelihood):
                 os.path.join(
                     os.path.dirname(
                         esr.generation.simplifier.__file__), '..', '')) + '/'
-        self.fn_dir = self.base_dir + param_set
+        esr_dir = self.base_dir = os.path.abspath(
+            os.path.join(
+                os.path.dirname(
+                    esr.generation.simplifier.__file__), '..', '')) + '/'
+        self.fn_dir = esr_dir + param_set
         self.data_file = data_file
         self.cov_file = data_file
         self.like_dir = self.base_dir + "/fitting/"
