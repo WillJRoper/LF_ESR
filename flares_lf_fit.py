@@ -43,6 +43,5 @@ esr.fitting.test_all.main(complexity, likelihood)
 esr.fitting.test_all_Fisher.main(complexity, likelihood)
 esr.fitting.match.main(complexity, likelihood)
 esr.fitting.combine_DL.main(complexity, likelihood)
-print("Plotting in", likelihood.fig_dir)
 esr.fitting.plot.main(complexity, likelihood)
 
