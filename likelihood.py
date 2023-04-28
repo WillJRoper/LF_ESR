@@ -15,7 +15,8 @@ class LFLikelihood(Likelihood):
                          data_dir=data_dir)
 
         # Overwrite function directory in parent
-        self.fn_dir = esr_dir + "function_library/ext_maths/"
+        self.fn_dir = "/cosma/home/dp004/dc-rope1/modules/ESR/esr/" \
+            + "function_library/ext_maths/"
 
         # Metadata
         self.ylabel = r'$log_10(M / [Mpc / dex / mag])$'    # for plotting
