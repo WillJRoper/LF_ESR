@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from esr.fitting.likelihood import Likelihood
 from utils import get_lum_all
@@ -39,6 +40,18 @@ class LFLikelihood(Likelihood):
         self.out_dir = self.base_out_dir + "/output_" + run_name
         self.fig_dir = self.base_out_dir + "/figs_" + run_name
 
+        # Make the directories if they don't exist
+        if not os.path.exists(self.like_dir):
+            os.makedirs(self.like_dir)
+        if not os.path.exists(self.base_out_dir):
+            os.makedirs(self.base_out_dir)
+        if not os.path.exists(self.temp_dir):
+            os.makedirs(self.temp_dir)
+        if not os.path.exists(self.out_dir):
+            os.makedirs(self.out_dir)
+        if not os.path.exists(self.fig_dir):
+            os.makedirs(self.fig_dir)
+            
         # Metadata
         self.ylabel = r'$log_10(M / [Mpc / dex / mag])$'    # for plotting
 
