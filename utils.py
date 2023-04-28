@@ -6,7 +6,7 @@ from unyt import pc
 import pandas as pd
 
 
-def lum_to_M(Lnu_):
+def lum_to_M(Lnu):
     """ Convert L_nu to absolute magnitude (M). If no unit
         provided assumes erg/s/Hz. """
 
