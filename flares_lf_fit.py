@@ -12,9 +12,9 @@ import esr.fitting.plot
 from likelihood import LFLikelihood
 
 # Set up the function generation 
-runname = 'ext_maths'
+param_set = 'core_maths'
 complexity = int(sys.argv[1])
-esr.generation.duplicate_checker.main(runname, complexity, seed=42)
+esr.generation.duplicate_checker.main(param_set, complexity, seed=42)
 
 # Define the path to the data
 datapath = "/cosma7/data/dp004/dc-payy1/my_files/flares_pipeline/data/" \
@@ -35,7 +35,7 @@ if not os.path.exists(outpath):
 # Set up the likelihood
 likelihood = LFLikelihood(datapath, "FLARES-LF", snap,
                           data_dir=outpath, base_dir=outpath,
-                          param_set=runname)
+                          param_set=param_set)
 print("Got likelihood")
 
 # Run the fitting
