@@ -58,7 +58,7 @@ class LFLikelihood(Likelihood):
             os.makedirs(self.fig_dir)
             
         # Metadata
-        self.ylabel = r'$log_10(N / [Mpc / dex / mag])$'
+        self.ylabel = r'$log_{10}(N / [Mpc / dex / mag])$'
 
         bins = -np.arange(17.5, 26, 0.25)[::-1]
         bincents = (bins[1:] + bins[:-1]) / 2.
@@ -82,6 +82,10 @@ class LFLikelihood(Likelihood):
         self.yvar = phi
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
+
+        print(self.xvar)
+        print(self.yvar)
+        print(self.yerr)
 
     def get_pred(self, x, a, eq_numpy, **kwargs):
         """
