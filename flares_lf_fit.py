@@ -1,4 +1,5 @@
 import sys
+import os
 import h5py
 import esr.generation.duplicate_checker
 import esr.fitting.test_all
@@ -23,11 +24,17 @@ tags = ['010_z005p000', '009_z006p000', '008_z007p000', '007_z008p000',
         '006_z009p000', '005_z010p000']
 snap = tags[int(sys.argv[2])]
 
+# Define the output path
+outpath = "FLARES_ESR_DATA/complexity%d/%s" % (complexity, snap)
+
+# Make sure the output directory exists
+if not os.path.exists(outpath):
+    os.makedirs(outpath)
+
 
 # Set up the likelihood
 likelihood = LFLikelihood(datapath, "FLARES-LF", snap,
-                          data_dir="FLARES_ESR_DATA/complexity%d" % complexity,
-                          base_dir="FLARES_ESR_DATA/complexity%d" % complexity,
+                          data_dir=outpath, base_dir=outpath,
                           param_set=runname)
 print("Got likelihood")
 
