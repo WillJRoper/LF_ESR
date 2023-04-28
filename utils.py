@@ -17,7 +17,7 @@ def lum_to_M(Lnu_):
 
 
 def get_lum(ii, tag, bins = np.arange(-26,-16,0.5), inp='FLARES',
-            _filter = 'FUV', LF = True, Luminosity='DustModelI'):
+            _filter = 'FUV', LF = True, Luminosity='DustModelI', data_file):
 
     if inp == 'FLARES':
 
@@ -26,7 +26,7 @@ def get_lum(ii, tag, bins = np.arange(-26,-16,0.5), inp='FLARES',
         if len(num) == 1:
             num =  '0'+num
 
-        filename = rF"./data/flares.hdf5"
+        filename = data_file
         num = num+'/'
 
 
