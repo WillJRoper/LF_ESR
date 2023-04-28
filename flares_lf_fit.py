@@ -13,7 +13,6 @@ from likelihood import LFLikelihood
 runname = 'ext_maths'
 complexity = int(sys.argv[1])
 esr.generation.duplicate_checker.main(runname, complexity, seed=42)
-print("Generated function set...")
 
 # Define the path to the data
 datapath = "/cosma7/data/dp004/dc-payy1/my_files/flares_pipeline/data/" \

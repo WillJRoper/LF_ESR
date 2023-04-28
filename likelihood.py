@@ -10,7 +10,7 @@ class LFLikelihood(Likelihood):
         """
 
         # Intanstiate the parent class.
-        super().__init__(self, data_file, data_file, run_name,
+        super().__init__(data_file, data_file, run_name,
                          data_dir=data_dir)
 
         # Metadata
