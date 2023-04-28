@@ -52,7 +52,8 @@ def get_lum(ii, tag, bins = np.arange(-26,-16,0.5), inp='FLARES',
 
 
 def get_lum_all(tag, bins = np.arange(-25, -16, 0.5), inp = 'FLARES',
-                LF = True, _filter = 'FUV', Luminosity='DustModelI'):
+                LF = True, _filter = 'FUV', Luminosity='DustModelI',
+                data_file="flares.hdf5"):
 
     if inp == 'FLARES':
 
