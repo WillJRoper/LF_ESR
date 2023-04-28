@@ -61,7 +61,7 @@ class LFLikelihood(Likelihood):
         self.ylabel = r'$log_10(N / [Mpc / dex / mag])$'
 
         bins = -np.arange(17.5, 26, 0.25)[::-1]
-        bincen = (bins[1:] + bins[:-1]) / 2.
+        bincents = (bins[1:] + bins[:-1]) / 2.
         binwidth = bins[1:] - bins[:-1]
 
         # Get the data from the master file.
@@ -72,12 +72,13 @@ class LFLikelihood(Likelihood):
         err = err / (3200 ** 3 * binwidth)
 
         # Apply mask to ensure robust bins
-        ok = hist_all >= 5
-        phi = phi[ok]
-        hist_all = hist_all[ok]
-        err = err[ok]
+        okinds = hist_all >= 5
+        phi = phi[okinds]
+        hist_all = hist_all[okinds]
+        err = err[okinds]
+        bincents = bincents[okinds]
         
-        self.xvar = bincen
+        self.xvar = bincents
         self.yvar = phi
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
