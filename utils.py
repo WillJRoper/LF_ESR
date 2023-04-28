@@ -1,4 +1,5 @@
 import h5py
+import numpy as np
 import schwimmbad
 from functools import partial
 from unyt import pc
