@@ -1,6 +1,7 @@
 import sys
 import os
 import h5py
+
 import esr.generation.duplicate_checker
 import esr.fitting.test_all
 import esr.fitting.test_all_Fisher
@@ -31,18 +32,16 @@ outpath = "FLARES_ESR_DATA/complexity%d/%s" % (complexity, snap)
 if not os.path.exists(outpath):
     os.makedirs(outpath)
 
-
 # Set up the likelihood
 likelihood = LFLikelihood(datapath, "FLARES-LF", snap,
                           data_dir=outpath, base_dir=outpath,
                           param_set=runname)
 print("Got likelihood")
 
-
 # Run the fitting
 esr.fitting.test_all.main(complexity, likelihood)
 esr.fitting.test_all_Fisher.main(complexity, likelihood)
 esr.fitting.match.main(complexity, likelihood)
 esr.fitting.combine_DL.main(complexity, likelihood)
-esr.fitting.plot.main(comp, likelihood)
+esr.fitting.plot.main(complexity, likelihood)
 

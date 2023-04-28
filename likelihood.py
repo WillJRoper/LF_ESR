@@ -58,7 +58,7 @@ class LFLikelihood(Likelihood):
             os.makedirs(self.fig_dir)
             
         # Metadata
-        self.ylabel = r'$log_10(M / [Mpc / dex / mag])$'    # for plotting
+        self.ylabel = r'$log_10(N / [Mpc / dex / mag])$'
 
         bins = -np.arange(17.5, 26, 0.25)[::-1]
         bincen = (bins[1:] + bins[:-1]) / 2.
@@ -73,7 +73,7 @@ class LFLikelihood(Likelihood):
 
         # Apply mask to ensure robust bins
         ok = hist_all >= 5
-        out = out[ok]
+        phi = phi[ok]
         hist_all = hist_all[ok]
         err = err[ok]
         
