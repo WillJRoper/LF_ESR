@@ -62,7 +62,8 @@ def get_lum_all(tag, bins = np.arange(-25, -16, 0.5), inp = 'FLARES',
         sims = np.arange(0,len(weights))
 
         calc = partial(get_lum, tag = tag, bins = bins, inp = inp, LF = LF,
-                       _filter = _filter, Luminosity = Luminosity)
+                       _filter = _filter, Luminosity = Luminosity,
+                       data_file=data_file)
 
         pool = schwimmbad.MultiPool(processes=12)
         dat = np.array(list(pool.map(calc, sims)))
