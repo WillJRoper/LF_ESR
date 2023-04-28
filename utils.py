@@ -1,7 +1,17 @@
 import h5py
 import schwimmbad
 from functools import partial
-from FLARE.photom import lum_to_M, M_to_lum
+from unyt import pc
+
+
+def lum_to_M(Lnu_):
+    """ Convert L_nu to absolute magnitude (M). If no unit
+        provided assumes erg/s/Hz. """
+
+    tenpc = 10*pc
+    geo = 4*np.pi*(tenpc.to('cm').value)**2
+
+    return -2.5*np.log10(Lnu/geo)-48.6
 
 
 def get_lum(ii, tag, bins = np.arange(-26,-16,0.5), inp='FLARES',
