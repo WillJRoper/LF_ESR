@@ -80,6 +80,8 @@ class LFLikelihood(Likelihood):
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
 
+        print(self.xvar, self.yvar, self.yerr)
+
     def get_pred(self, x, a, eq_numpy, **kwargs):
         """
         Return the predicted LF, here we overload the parent method since we

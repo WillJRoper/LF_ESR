@@ -44,5 +44,5 @@ esr.fitting.test_all.main(complexity, likelihood)
 esr.fitting.test_all_Fisher.main(complexity, likelihood)
 esr.fitting.match.main(complexity, likelihood)
 esr.fitting.combine_DL.main(complexity, likelihood)
-# esr.fitting.plot.main(comp, likelihood)
+esr.fitting.plot.main(comp, likelihood)
 
