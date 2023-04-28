@@ -1,5 +1,6 @@
 import numpy as np
 from esr.fitting.likelihood import Likelihood
+from utils import get_lum_all
 
 
 class LFLikelihood(Likelihood):
