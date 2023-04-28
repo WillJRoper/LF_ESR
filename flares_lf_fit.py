@@ -26,7 +26,9 @@ snap = tags[int(sys.argv[2])]
 
 # Set up the likelihood
 likelihood = LFLikelihood(datapath, "FLARES-LF", snap,
-                          data_dir="FLARES_ESR_DATA")
+                          data_dir="FLARES_ESR_DATA/complexity%d" % complexity,
+                          base_dir="FLARES_ESR_DATA/complexity%d" % complexity,
+                          param_set=runname)
 print("Got likelihood")
 
 

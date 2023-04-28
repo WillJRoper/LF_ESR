@@ -5,8 +5,10 @@ from utils import get_lum_all
 
 class LFLikelihood(Likelihood):
 
-    def __init__(self, data_file, run_name, snap, data_dir="esr_data"):
-        """Likelihood class used to fit FLARES LF data
+    def __init__(self, data_file, run_name, snap, param_set="ext_maths",
+                 base_dir=None, data_dir="esr_data"):
+        """
+        Likelihood class used to fit FLARES LF data
         
         """
 
@@ -14,9 +16,28 @@ class LFLikelihood(Likelihood):
         super().__init__(data_file, data_file, run_name,
                          data_dir=data_dir)
 
-        # Overwrite function directory in parent
-        self.fn_dir = "/cosma/home/dp004/dc-rope1/modules/ESR/esr/" \
-            + "function_library/ext_maths/"
+        # Overwrite directories in parent
+        if base_dir is not None:
+            self.base_dir = base_dir
+            if self.base_dir[-1] != "/":
+                self.base_dir += "/"
+        else:
+            self.base_dir = os.path.abspath(
+                os.path.join(
+                    os.path.dirname(
+                        esr.generation.simplifier.__file__), '..', '')) + '/'
+        self.fn_dir = self.base_dir + param_set
+        self.data_file = data_file
+        self.cov_file = data_file
+        self.like_dir = self.base_dir + "/fitting/"
+        self.fnprior_prefix = "aifeyn_"
+        self.combineDL_prefix = "combine_DL_"
+        self.final_prefix = "final_"
+        
+        self.base_out_dir = self.like_dir + "/output/"
+        self.temp_dir = self.base_out_dir + "/partial_" + run_name
+        self.out_dir = self.base_out_dir + "/output_" + run_name
+        self.fig_dir = self.base_out_dir + "/figs_" + run_name
 
         # Metadata
         self.ylabel = r'$log_10(M / [Mpc / dex / mag])$'    # for plotting
