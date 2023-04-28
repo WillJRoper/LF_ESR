@@ -14,6 +14,9 @@ class LFLikelihood(Likelihood):
         super().__init__(data_file, data_file, run_name,
                          data_dir=data_dir)
 
+        # Overwrite function directory in parent
+        self.fn_dir = esr_dir + "function_library/ext_maths/"
+
         # Metadata
         self.ylabel = r'$log_10(M / [Mpc / dex / mag])$'    # for plotting
 
