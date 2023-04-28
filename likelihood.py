@@ -67,20 +67,20 @@ class LFLikelihood(Likelihood):
         # Get the data from the master file.
         out, hist_all, err = get_lum_all(snap, bins = bins,
                                          data_file=data_file)
-        ok = np.where(hist_all<=5)[0]
-        out[ok] = 0.
-        hist_all[ok] = 0.
-        err[ok] = 0.
         
         phi = out / (3200 ** 3 * binwidth)
         err = err / (3200 ** 3 * binwidth)
+
+        # Apply mask to ensure robust bins
+        ok = hist_all >= 5
+        out = out[ok]
+        hist_all = hist_all[ok]
+        err = err[ok]
         
         self.xvar = bincen
         self.yvar = phi
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
-
-        print(self.xvar, self.yvar, self.yerr)
 
     def get_pred(self, x, a, eq_numpy, **kwargs):
         """
