@@ -79,7 +79,7 @@ class LFLikelihood(Likelihood):
         bincents = bincents[okinds]
         
         self.xvar = bincents
-        self.yvar = np.log10(phi)
+        self.yvar = phi
         self.yerr = err
         self.inv_cov = 1 / self.yerr ** 2
 
@@ -97,7 +97,7 @@ class LFLikelihood(Likelihood):
             :log_10(N) (float or np.array): the predicted counts in bins
         
         """
-        return np.log10(eq_numpy(x, *a))
+        return eq_numpy(x, *a)
 
 
     def negloglike(self, a, eq_numpy, **kwargs):
